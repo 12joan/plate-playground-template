@@ -121,6 +121,7 @@ import {
   ELEMENT_TR,
 } from '@udecode/plate-table';
 import { createTrailingBlockPlugin } from '@udecode/plate-trailing-block';
+import { createYjsPlugin } from '@udecode/plate-yjs';
 
 import { autoformatPlugin } from '@/lib/plate/autoformatPlugin';
 import { dragOverCursorPlugin } from '@/lib/plate/dragOverCursorPlugin';
@@ -374,6 +375,14 @@ export const plugins = createPlugins(
     createDeserializeDocxPlugin(),
     createDeserializeMdPlugin(),
     createJuicePlugin(),
+    createYjsPlugin({
+      options: {
+        hocuspocusProviderOptions: {
+          url: 'http://127.0.0.1:8000',
+          name: 'somename',
+        },
+      },
+    }),
   ],
   {
     components: withDraggables(
